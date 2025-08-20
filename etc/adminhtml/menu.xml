@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MagoArab_EasYorder::easyorder" 
+             title="EasyOrder" 
+             module="MagoArab_EasYorder" 
+             sortOrder="100" 
+             resource="MagoArab_EasYorder::easyorder"/>
+        
+        <add id="MagoArab_EasYorder::easyorder_configuration" 
+             title="Configuration" 
+             module="MagoArab_EasYorder" 
+             sortOrder="10" 
+             parent="MagoArab_EasYorder::easyorder" 
+             resource="MagoArab_EasYorder::easyorder_configuration"/>
+        
+        <add id="MagoArab_EasYorder::easyorder_checkout_fields" 
+             title="Manage Checkout Fields" 
+             module="MagoArab_EasYorder" 
+             sortOrder="20" 
+             parent="MagoArab_EasYorder::easyorder" 
+             action="easyorder/checkout_fields/index" 
+             resource="MagoArab_EasYorder::easyorder"/>
+        
+        <add id="MagoArab_EasYorder::easyorder_order_attributes" 
+             title="Order Attributes" 
+             module="MagoArab_EasYorder" 
+             sortOrder="30" 
+             parent="MagoArab_EasYorder::easyorder" 
+             action="easyorder/order_attributes/index" 
+             resource="MagoArab_EasYorder::easyorder"/>
+        
+        <add id="MagoArab_EasYorder::easyorder_customer_attributes" 
+             title="Customer Attributes" 
+             module="MagoArab_EasYorder" 
+             sortOrder="40" 
+             parent="MagoArab_EasYorder::easyorder" 
+             action="easyorder/customer_attributes/index" 
+             resource="MagoArab_EasYorder::easyorder"/>
+        
+        <add id="MagoArab_EasYorder::easyorder_orders" 
+             title="Quick Orders" 
+             module="MagoArab_EasYorder" 
+             sortOrder="50" 
+             parent="MagoArab_EasYorder::easyorder" 
+             action="easyorder/orders/index" 
+             resource="MagoArab_EasYorder::easyorder"/>
+        
+        <add id="MagoArab_EasYorder::easyorder_diagnosis" 
+             title="System Diagnosis" 
+             module="MagoArab_EasYorder" 
+             sortOrder="60" 
+             parent="MagoArab_EasYorder::easyorder" 
+             action="easyorder/diagnosis/index" 
+             resource="MagoArab_EasYorder::easyorder"/>
+        
+        <add id="MagoArab_EasYorder::easyorder_test" 
+             title="Test Controller" 
+             module="MagoArab_EasYorder" 
+             sortOrder="70" 
+             parent="MagoArab_EasYorder::easyorder" 
+             action="easyorder/test/index" 
+             resource="MagoArab_EasYorder::easyorder"/>
+    </menu>
+</config>

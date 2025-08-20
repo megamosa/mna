@@ -1,0 +1,109 @@
+<?php
+/* @var $block \MagoArab\EasYorder\Block\Product\QuickOrder */
+?>
+<div class="easyorder-section">
+    <h4 class="section-title"><?= __('Delivery Information') ?></h4>
+    <div class="field-group" id="magoarab-address-selector" style="display:none;">
+        <div class="field">
+            <label class="label"><span><?= __('Use Saved Address') ?></span></label>
+            <div class="control">
+                <select id="magoarab-saved-addresses" class="select">
+                    <option value=""><?= __('New Address') ?></option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="field-group">
+        <div class="field required" id="magoarab-country-field-wrapper">
+            <label for="magoarab-country-id" class="label">
+                <span><?= __('Country') ?></span>
+            </label>
+            <div class="control">
+                <select id="magoarab-country-id" name="country_id" class="select required-entry" required>
+                    <option value=""><?= __('Select Country') ?></option>
+                    <?php foreach ($block->getCountries() as $country): ?>
+                        <option value="<?= $block->escapeHtmlAttr($country['value']) ?>"
+                                <?= $country['value'] === $block->getDefaultCountry() ? 'selected' : '' ?>>
+                            <?= $block->escapeHtml($country['label']) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+        </div>
+
+        <div class="field<?= $block->isRegionRequired() ? ' required' : '' ?>">
+            <label for="magoarab-region-id" class="label">
+                <span><?= __('State/Province') ?></span>
+            </label>
+            <div class="control">
+                <select id="magoarab-region-id" name="region_id" class="select" style="display: none;">
+                    <option value=""><?= __('Select State/Province') ?></option>
+                </select>
+                <input type="text"
+                       id="magoarab-region"
+                       name="region"
+                       class="input-text"
+                       placeholder="<?= $block->escapeHtmlAttr(__('Enter state/province')) ?>"
+                       style="display: none;">
+            </div>
+        </div>
+
+        <div class="field required">
+            <label for="magoarab-city" class="label">
+                <span><?= __('City') ?></span>
+            </label>
+            <div class="control">
+                <input type="text"
+                       id="magoarab-city"
+                       name="city"
+                       class="input-text required-entry"
+                       placeholder="<?= $block->escapeHtmlAttr(__('Enter city name')) ?>"
+                       required>
+            </div>
+        </div>
+
+        <div class="field required">
+            <label for="magoarab-street-1" class="label">
+                <span><?= __('Street Address - Line 1') ?></span>
+            </label>
+            <div class="control">
+                <input type="text"
+                       id="magoarab-street-1"
+                       name="street[]"
+                       class="input-text required-entry"
+                       placeholder="<?= $block->escapeHtmlAttr(__('Building number, street name')) ?>"
+                       required>
+            </div>
+        </div>
+
+        <?php if ($block->showStreet2()): ?>
+        <div class="field">
+            <label for="magoarab-street-2" class="label">
+                <span><?= __('Street Address - Line 2 (Optional)') ?></span>
+            </label>
+            <div class="control">
+                <input type="text"
+                       id="magoarab-street-2"
+                       name="street[]"
+                       class="input-text"
+                       placeholder="<?= $block->escapeHtmlAttr(__('Apartment, floor, additional info')) ?>">
+            </div>
+        </div>
+        <?php endif; ?>
+
+        <div class="field" id="magoarab-postcode-field">
+            <label for="magoarab-postcode" class="label">
+                <span><?= __('Postal Code') ?></span>
+            </label>
+            <div class="control">
+                <input type="text"
+                       id="magoarab-postcode"
+                       name="postcode"
+                       class="input-text"
+                       placeholder="<?= $block->escapeHtmlAttr(__('Enter postal code')) ?>">
+            </div>
+        </div>
+    </div>
+</div>
+
+

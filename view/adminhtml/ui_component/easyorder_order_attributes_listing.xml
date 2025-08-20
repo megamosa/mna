@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">easyorder_order_attributes_listing.easyorder_order_attributes_listing_data_source</item>
+            <item name="deps" xsi:type="string">easyorder_order_attributes_listing.easyorder_order_attributes_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="add">
+                <url path="easyorder/order_attributes/new"/>
+                <class>primary</class>
+                <label translate="true">Add New Order Attribute</label>
+            </button>
+        </buttons>
+        <spinner>easyorder_order_attributes_columns</spinner>
+        <deps>
+            <dep>easyorder_order_attributes_listing.easyorder_order_attributes_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="easyorder_order_attributes_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">MagoArab\EasYorder\Ui\DataProvider\OrderAttributesDataProvider</argument>
+            <argument name="name" xsi:type="string">easyorder_order_attributes_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">attribute_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <columns name="easyorder_order_attributes_columns">
+        <column name="attribute_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">textRange</item>
+                    <item name="sorting" xsi:type="string">asc</item>
+                    <item name="label" xsi:type="string" translate="true">ID</item>
+                </item>
+            </argument>
+        </column>
+        <column name="attribute_code">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Attribute Code</item>
+                </item>
+            </argument>
+        </column>
+        <column name="frontend_label">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Label</item>
+                </item>
+            </argument>
+        </column>
+        <column name="frontend_input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="options" xsi:type="object">MagoArab\EasYorder\Model\Config\Source\InputTypes</item>
+                    <item name="label" xsi:type="string" translate="true">Input Type</item>
+                </item>
+            </argument>
+        </column>
+        <column name="is_required">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magento\Config\Model\Config\Source\Yesno</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Required</item>
+                </item>
+            </argument>
+        </column>
+        <column name="is_visible">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Magento\Config\Model\Config\Source\Yesno</item>
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Visible</item>
+                </item>
+            </argument>
+        </column>
+        <column name="sort_order">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">textRange</item>
+                    <item name="label" xsi:type="string" translate="true">Sort Order</item>
+                </item>
+            </argument>
+        </column>
+        <actionsColumn name="actions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">107</item>
+                    <item name="indexField" xsi:type="string">attribute_id</item>
+                </item>
+            </argument>
+            <settings>
+                <indexField>attribute_id</indexField>
+            </settings>
+            <action name="edit">
+                <argument name="data" xsi:type="array">
+                    <item name="url" xsi:type="string">easyorder/order_attributes/edit</item>
+                    <item name="label" xsi:type="string" translate="true">Edit</item>
+                </argument>
+                <settings>
+                    <url>easyorder/order_attributes/edit</url>
+                </settings>
+            </action>
+            <action name="delete">
+                <argument name="data" xsi:type="array">
+                    <item name="url" xsi:type="string">easyorder/order_attributes/delete</item>
+                    <item name="label" xsi:type="string" translate="true">Delete</item>
+                </argument>
+                <settings>
+                    <url>easyorder/order_attributes/delete</url>
+                    <confirm>
+                        <message translate="true">Are you sure you want to delete this attribute?</message>
+                        <title translate="true">Delete Attribute</title>
+                    </confirm>
+                </settings>
+            </action>
+        </actionsColumn>
+    </columns>
+</listing>

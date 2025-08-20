@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MagoArab_EasYorder Product Page Layout
+ *
+ * @category    MagoArab
+ * @package     MagoArab_EasYorder
+ * @author      MagoArab Development Team
+ * @copyright   Copyright (c) 2025 MagoArab
+ * @license     https://opensource.org/licenses/MIT MIT License
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="MagoArab_EasYorder::css/easyorder.css"/>
+    </head>
+    <body>
+        <referenceContainer name="product.info.main">
+            <block class="MagoArab\EasYorder\Block\Product\QuickOrder"
+                   name="product.info.magoarab.easyorder"
+                   template="MagoArab_EasYorder::product/quick_order_container.phtml"
+                   after="product.info.review">
+                <arguments>
+                    <argument name="css_class" xsi:type="string">magoarab-easyorder-container</argument>
+                </arguments>
+                <block class="MagoArab\EasYorder\Block\Product\QuickOrder"
+                       name="product.info.magoarab.easyorder.header"
+                       as="header"
+                       template="MagoArab_EasYorder::product/quick_order/header.phtml"/>
+
+                <block class="MagoArab\EasYorder\Block\Product\QuickOrder"
+                       name="product.info.magoarab.easyorder.product_info"
+                       as="product_info"
+                       template="MagoArab_EasYorder::product/quick_order/product_info.phtml"/>
+
+                <block class="MagoArab\EasYorder\Block\Product\QuickOrder"
+                       name="product.info.magoarab.easyorder.customer"
+                       as="customer"
+                       template="MagoArab_EasYorder::product/quick_order/customer.phtml"/>
+
+                <block class="MagoArab\EasYorder\Block\Product\QuickOrder"
+                       name="product.info.magoarab.easyorder.address"
+                       as="address"
+                       template="MagoArab_EasYorder::product/quick_order/address.phtml"/>
+
+                <block class="MagoArab\EasYorder\Block\Product\QuickOrder"
+                       name="product.info.magoarab.easyorder.shipping"
+                       as="shipping"
+                       template="MagoArab_EasYorder::product/quick_order/shipping.phtml"/>
+
+                <block class="MagoArab\EasYorder\Block\Product\QuickOrder"
+                       name="product.info.magoarab.easyorder.payment"
+                       as="payment"
+                       template="MagoArab_EasYorder::product/quick_order/payment.phtml"/>
+
+                <block class="MagoArab\EasYorder\Block\Product\QuickOrder"
+                       name="product.info.magoarab.easyorder.quantity"
+                       as="quantity"
+                       template="MagoArab_EasYorder::product/quick_order/quantity.phtml"/>
+
+                <block class="MagoArab\EasYorder\Block\Product\QuickOrder"
+                       name="product.info.magoarab.easyorder.summary"
+                       as="summary"
+                       template="MagoArab_EasYorder::product/quick_order/summary.phtml"/>
+
+                <block class="MagoArab\EasYorder\Block\Product\QuickOrder"
+                       name="product.info.magoarab.easyorder.actions"
+                       as="actions"
+                       template="MagoArab_EasYorder::product/quick_order/actions.phtml"/>
+
+                <block class="MagoArab\EasYorder\Block\Product\QuickOrder"
+                       name="product.info.magoarab.easyorder.messages"
+                       as="messages"
+                       template="MagoArab_EasYorder::product/quick_order/messages.phtml"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

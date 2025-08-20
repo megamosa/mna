@@ -1,0 +1,40 @@
+<?php
+/* @var $block \MagoArab\EasYorder\Block\Product\QuickOrder */
+$paymentMethods = $block->getAvailablePaymentMethods();
+?>
+<div class="easyorder-section">
+    <h4 class="section-title"><?= __('Payment Method') ?></h4>
+    <div class="field-group">
+        <div class="field required">
+            <div class="control">
+                <div class="payment-methods" id="magoarab-payment-methods">
+                    <?php if (!empty($paymentMethods)): ?>
+                        <?php foreach ($paymentMethods as $index => $method): ?>
+                            <?php 
+                            $defaultMethod = $block->getDefaultPaymentMethod();
+                            $isDefault = ($defaultMethod && $method['code'] === $defaultMethod) || (!$defaultMethod && $index === 0);
+                            ?>
+                            <label class="payment-method">
+                                <input type="radio"
+                                       name="payment_method"
+                                       value="<?= $block->escapeHtmlAttr($method['code']) ?>"
+                                       class="payment-radio"
+                                       <?= $isDefault ? 'checked' : '' ?>>
+                                <span class="payment-label">
+                                    <?= $block->escapeHtml($method['title']) ?>
+                                </span>
+                            </label>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <div class="no-payment-methods">
+                            <p><?= __('No payment methods available currently') ?></p>
+                            <small><?= __('Please check payment method settings in admin panel') ?></small>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

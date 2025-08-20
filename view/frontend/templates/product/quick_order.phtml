@@ -1,0 +1,18 @@
+<?php
+/**
+ * MagoArab_EasYorder Quick Order Template (Legacy Wrapper)
+ * Renders the modular container template to keep this file small.
+ */
+
+/* @var $block \MagoArab\EasYorder\Block\Product\QuickOrder */
+
+if (!$block->canShowQuickOrder()) {
+    return;
+}
+
+echo $block->getLayout()
+    ->createBlock(\MagoArab\EasYorder\Block\Product\QuickOrder::class)
+    ->setTemplate('MagoArab_EasYorder::product/quick_order_container.phtml')
+    ->toHtml();
+
+

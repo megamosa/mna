@@ -1,0 +1,36 @@
+{
+  "name": "magoarab/module-easyorder",
+  "description": "MagoArab EasyOrder - Quick Order module for Magento 2.4.7+",
+  "type": "magento2-module",
+  "license": ["MIT"],
+  "authors": [
+    {
+      "name": "MagoArab Development Team",
+      "email": "info@mago-ar.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=8.1",
+    "magento/framework": ">=103.0.0",
+    "magento/module-store": "*",
+    "magento/module-catalog": "*",
+    "magento/module-checkout": "*",
+    "magento/module-quote": "*",
+    "magento/module-customer": "*",
+    "magento/module-sales": "*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "MagoArab\\EasYorder\\": ""
+    }
+  },
+  "version": "1.0.0",
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
+
+

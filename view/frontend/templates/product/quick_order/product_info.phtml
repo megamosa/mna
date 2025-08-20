@@ -1,0 +1,21 @@
+<?php
+/* @var $block \MagoArab\EasYorder\Block\Product\QuickOrder */
+$product = $block->getCurrentProduct();
+?>
+<div class="easyorder-product-info">
+    <div class="product-summary">
+        <span class="product-name"><?= $block->escapeHtml($product->getName()) ?></span>
+        <span class="product-price" id="magoarab-unit-price" data-price="<?= $block->getCurrentProductPrice() ?>"><?= $block->getCurrentProductFormattedPrice() ?></span>
+    </div>
+
+    <?php if ($product->getTypeId() === 'configurable'): ?>
+    <div class="easyorder-product-options" id="magoarab-product-options">
+        <h4 class="section-title"><?= __('Product Options') ?></h4>
+        <div class="product-options-container">
+            <?= $block->getProductOptionsHtml() ?>
+        </div>
+    </div>
+    <?php endif; ?>
+</div>
+
+

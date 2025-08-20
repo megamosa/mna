@@ -1,0 +1,54 @@
+<div class="easyorder-section" id="magoarab-order-summary-section">
+    <h4 class="section-title"><?= __('Order Summary') ?></h4>
+    <div class="order-summary-spinner" id="order-summary-spinner" style="display: none;">
+        <div class="spinner-container">
+            <div class="spinner"></div>
+            <span><?= __('Updating...') ?></span>
+        </div>
+    </div>
+    <div class="order-summary" id="order-summary-content">
+        <div class="summary-row">
+            <span class="label"><?= __('Unit Price:') ?></span>
+            <span class="value" id="magoarab-unit-price-display"></span>
+        </div>
+        <div class="summary-row">
+            <span class="label"><?= __('Quantity:') ?></span>
+            <span class="value" id="magoarab-qty-display">1</span>
+        </div>
+        <div class="summary-row">
+            <span class="label"><?= __('Subtotal:') ?></span>
+            <span class="value" id="magoarab-product-subtotal"></span>
+        </div>
+        <div class="summary-row" id="magoarab-shipping-cost-row" style="display: none;">
+            <span class="label"><?= __('Shipping Cost:') ?></span>
+            <span class="value" id="magoarab-shipping-cost">-</span>
+        </div>
+        <div class="summary-row total-row">
+            <span class="label"><?= __('Final Total:') ?></span>
+            <span class="value" id="magoarab-order-total"></span>
+        </div>
+        <?php if ($block->getHelperData()->isCouponToggleEnabled()): ?>
+        <div class="summary-row" id="magoarab-coupon-toggle-row">
+            <a href="#" id="magoarab-coupon-toggle" class="toggle-link"><?= __('Do you have a discount coupon?') ?></a>
+            <div id="magoarab-coupon-field" style="display:none; margin-top:8px;">
+                <input type="text" id="coupon-code" name="coupon_code" class="input-text" placeholder="<?= $block->escapeHtmlAttr(__('Enter coupon code')) ?>" />
+                <button type="button" id="apply-coupon-btn" class="action primary" style="margin-left:6px;"><?= __('Apply') ?></button>
+                <button type="button" id="remove-coupon-btn" class="action" style="margin-left:6px; display:none;"><?= __('Remove') ?></button>
+                <div id="coupon-message" class="message" style="display:none; margin-top:6px;"></div>
+            </div>
+        </div>
+        <?php endif; ?>
+
+        <?php if ($block->getHelperData()->isCustomerNoteToggleEnabled()): ?>
+        <div class="summary-row" id="magoarab-note-toggle-row">
+            <a href="#" id="magoarab-note-toggle" class="toggle-link"><?= __('Do you have notes for the shipping company?') ?></a>
+            <div id="magoarab-note-field" style="display:none; margin-top:8px;">
+                <textarea id="customer_note" name="customer_note" rows="3" maxlength="<?= $block->escapeHtmlAttr($block->getHelperData()->getCustomerNoteMaxLength()) ?>" class="input-text" placeholder="<?= $block->escapeHtmlAttr(__('Enter your notes')) ?>"></textarea>
+                <small class="note"><?= __('Max %1 characters', $block->getHelperData()->getCustomerNoteMaxLength()) ?></small>
+            </div>
+        </div>
+        <?php endif; ?>
+    </div>
+</div>
+
+

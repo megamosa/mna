@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">easyorder_checkout_fields_form.easyorder_checkout_fields_form_data_source</item>
+            <item name="deps" xsi:type="string">easyorder_checkout_fields_form.easyorder_checkout_fields_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Checkout Fields Configuration</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">easyorder_checkout_fields_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="buttons" xsi:type="array">
+            <item name="save" xsi:type="array">
+                <item name="name" xsi:type="string">save</item>
+                <item name="label" xsi:type="string" translate="true">Save Configuration</item>
+                <item name="class" xsi:type="string">primary</item>
+                <item name="url" xsi:type="string">easyorder/checkout_fields/save</item>
+            </item>
+        </item>
+    </argument>
+    <dataSource name="easyorder_checkout_fields_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">MagoArab\EasYorder\Model\Config\DataProvider</argument>
+            <argument name="name" xsi:type="string">easyorder_checkout_fields_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="general">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">CHECKOUT FIELDS CONFIGURATION</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="opened" xsi:type="boolean">true</item>
+                <item name="sortOrder" xsi:type="number">10</item>
+            </item>
+        </argument>
+        
+        <!-- Customer Information Tab -->
+        <container name="customer_information">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Customer Information</item>
+                    <item name="collapsible" xsi:type="boolean">true</item>
+                    <item name="opened" xsi:type="boolean">true</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                </item>
+            </argument>
+            
+            <field name="customer_fields_enabled">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Enable Customer Information Fields</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="default" xsi:type="number">1</item>
+                        <item name="dataScope" xsi:type="string">customer_fields_enabled</item>
+                    </item>
+                </argument>
+            </field>
+            
+            <field name="customer_name_required">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Name Required</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="default" xsi:type="number">1</item>
+                        <item name="dataScope" xsi:type="string">customer_name_required</item>
+                        <item name="visible" xsi:type="boolean">true</item>
+                        <item name="depends" xsi:type="array">
+                            <item name="customer_fields_enabled" xsi:type="number">1</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            
+            <field name="customer_email_required">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Email Required</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="default" xsi:type="number">1</item>
+                        <item name="dataScope" xsi:type="string">customer_email_required</item>
+                        <item name="visible" xsi:type="boolean">true</item>
+                        <item name="depends" xsi:type="array">
+                            <item name="customer_fields_enabled" xsi:type="number">1</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            
+            <field name="customer_phone_required">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Phone Required</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="default" xsi:type="number">1</item>
+                        <item name="dataScope" xsi:type="string">customer_phone_required</item>
+                        <item name="visible" xsi:type="boolean">true</item>
+                        <item name="depends" xsi:type="array">
+                            <item name="customer_fields_enabled" xsi:type="number">1</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+        </container>
+        
+        <!-- Shipping Method Tab -->
+        <container name="shipping_method">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Shipping Method</item>
+                    <item name="collapsible" xsi:type="boolean">true</item>
+                    <item name="opened" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                </item>
+            </argument>
+            
+            <field name="shipping_fields_enabled">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Enable Shipping Method Fields</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="default" xsi:type="number">1</item>
+                        <item name="dataScope" xsi:type="string">shipping_fields_enabled</item>
+                    </item>
+                </argument>
+            </field>
+            
+            <field name="shipping_address_required">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Shipping Address Required</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="default" xsi:type="number">1</item>
+                        <item name="dataScope" xsi:type="string">shipping_address_required</item>
+                        <item name="visible" xsi:type="boolean">true</item>
+                        <item name="depends" xsi:type="array">
+                            <item name="shipping_fields_enabled" xsi:type="number">1</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+        </container>
+        
+        <!-- Payment Method Tab -->
+        <container name="payment_method">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Payment Method</item>
+                    <item name="collapsible" xsi:type="boolean">true</item>
+                    <item name="opened" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="number">30</item>
+                </item>
+            </argument>
+            
+            <field name="payment_fields_enabled">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Enable Payment Method Fields</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="default" xsi:type="number">1</item>
+                        <item name="dataScope" xsi:type="string">payment_fields_enabled</item>
+                    </item>
+                </argument>
+            </field>
+        </container>
+        
+        <!-- Order Summary Tab -->
+        <container name="order_summary">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Order Summary</item>
+                    <item name="collapsible" xsi:type="boolean">true</item>
+                    <item name="opened" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
+                </item>
+            </argument>
+            
+            <field name="summary_fields_enabled">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Enable Order Summary Fields</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="default" xsi:type="number">1</item>
+                        <item name="dataScope" xsi:type="string">summary_fields_enabled</item>
+                    </item>
+                </argument>
+            </field>
+            
+            <field name="enable_coupon_toggle">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Enable Coupon Toggle</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="default" xsi:type="number">1</item>
+                        <item name="dataScope" xsi:type="string">enable_coupon_toggle</item>
+                        <item name="visible" xsi:type="boolean">true</item>
+                        <item name="depends" xsi:type="array">
+                            <item name="summary_fields_enabled" xsi:type="number">1</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            
+            <field name="enable_customer_note_toggle">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Enable Customer Note Toggle</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="default" xsi:type="number">1</item>
+                        <item name="dataScope" xsi:type="string">enable_customer_note_toggle</item>
+                        <item name="visible" xsi:type="boolean">true</item>
+                        <item name="depends" xsi:type="array">
+                            <item name="summary_fields_enabled" xsi:type="number">1</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+            
+            <field name="customer_note_max_length">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">text</item>
+                        <item name="label" xsi:type="string" translate="true">Customer Note Max Length</item>
+                        <item name="formElement" xsi:type="string">input</item>
+                        <item name="dataScope" xsi:type="string">customer_note_max_length</item>
+                        <item name="default" xsi:type="number">200</item>
+                        <item name="validation" xsi:type="array">
+                            <item name="required-entry" xsi:type="boolean">true</item>
+                            <item name="validate-number" xsi:type="boolean">true</item>
+                            <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
+                        </item>
+                        <item name="visible" xsi:type="boolean">true</item>
+                        <item name="depends" xsi:type="array">
+                            <item name="enable_customer_note_toggle" xsi:type="number">1</item>
+                        </item>
+                    </item>
+                </argument>
+            </field>
+        </container>
+        
+        <!-- Additional Options Tab -->
+        <container name="additional_options">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Additional Options</item>
+                    <item name="collapsible" xsi:type="boolean">true</item>
+                    <item name="opened" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="number">50</item>
+                </item>
+            </argument>
+            
+            <field name="enable_success_sound">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Enable Success Sound</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="default" xsi:type="number">1</item>
+                        <item name="dataScope" xsi:type="string">enable_success_sound</item>
+                    </item>
+                </argument>
+            </field>
+            
+            <field name="enable_confetti">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Enable Confetti Effect</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="default" xsi:type="number">1</item>
+                        <item name="dataScope" xsi:type="string">enable_confetti</item>
+                    </item>
+                </argument>
+            </field>
+            
+            <field name="auto_scroll_to_success">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="dataType" xsi:type="string">boolean</item>
+                        <item name="label" xsi:type="string" translate="true">Auto Scroll to Success Message</item>
+                        <item name="formElement" xsi:type="string">checkbox</item>
+                        <item name="prefer" xsi:type="string">toggle</item>
+                        <item name="default" xsi:type="number">1</item>
+                        <item name="dataScope" xsi:type="string">auto_scroll_to_success</item>
+                    </item>
+                </argument>
+            </field>
+        </container>
+    </fieldset>
+</form>

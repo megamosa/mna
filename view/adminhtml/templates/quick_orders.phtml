@@ -1,0 +1,82 @@
+<?php
+/**
+ * MagoArab_EasYorder Quick Orders Management Template
+ *
+ * @category    MagoArab
+ * @package     MagoArab_EasYorder
+ * @author      MagoArab Development Team
+ * @copyright   Copyright (c) 2025 MagoArab
+ * @license     https://opensource.org/licenses/MIT MIT License
+ */
+?>
+<div class="easyorder-quick-orders-management">
+    <div class="admin__page-section">
+        <div class="admin__page-section-title">
+            <span class="title"><?= $block->escapeHtml(__('Quick Orders Management')) ?></span>
+        </div>
+        
+        <div class="admin__page-section-content">
+            <div class="admin__fieldset">
+                <div class="admin__field">
+                    <div class="admin__field-label">
+                        <label><?= $block->escapeHtml(__('Status')) ?></label>
+                    </div>
+                    <div class="admin__field-control">
+                        <div class="admin__field-option">
+                            <input type="checkbox" id="quick_orders_enabled" name="quick_orders_enabled" value="1" checked>
+                            <label for="quick_orders_enabled"><?= $block->escapeHtml(__('Quick Orders Management is Enabled')) ?></label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="admin__field">
+                    <div class="admin__field-label">
+                        <label><?= $block->escapeHtml(__('Development Status')) ?></label>
+                    </div>
+                    <div class="admin__field-control">
+                        <p><?= $block->escapeHtml(__('This feature is under development. The full quick orders management interface will be available soon.')) ?></p>
+                        <p><?= $block->escapeHtml(__('This will allow you to:')) ?></p>
+                        <ul>
+                            <li><?= $block->escapeHtml(__('View all orders placed via the quick order form')) ?></li>
+                            <li><?= $block->escapeHtml(__('Manage and process quick orders')) ?></li>
+                            <li><?= $block->escapeHtml(__('Track quick order statistics')) ?></li>
+                            <li><?= $block->escapeHtml(__('Export quick order data')) ?></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="admin__field">
+                    <div class="admin__field-label">
+                        <label><?= $block->escapeHtml(__('Current Quick Orders')) ?></label>
+                    </div>
+                    <div class="admin__field-control">
+                        <p><?= $block->escapeHtml(__('Quick orders are currently being processed through the standard Magento order management system.')) ?></p>
+                        <p><?= $block->escapeHtml(__('You can view and manage them in:')) ?></p>
+                        <ul>
+                            <li><?= $block->escapeHtml(__('Sales > Orders')) ?></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.easyorder-quick-orders-management {
+    padding: 20px;
+}
+.admin__field {
+    margin-bottom: 20px;
+}
+.admin__field-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.admin__field-control p {
+    margin-bottom: 10px;
+}
+.admin__field-control ul {
+    margin-left: 20px;
+}
+</style>

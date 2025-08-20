@@ -1,0 +1,66 @@
+<?php
+/**
+ * MagoArab_EasYorder Checkout Fields Management Template
+ *
+ * @category    MagoArab
+ * @package     MagoArab_EasYorder
+ * @author      MagoArab Development Team
+ * @copyright   Copyright (c) 2025 MagoArab
+ * @license     https://opensource.org/licenses/MIT MIT License
+ */
+?>
+<div class="easyorder-checkout-fields-management">
+    <div class="admin__page-section">
+        <div class="admin__page-section-title">
+            <span class="title"><?= $block->escapeHtml(__('Checkout Fields Configuration')) ?></span>
+        </div>
+        
+        <div class="admin__page-section-content">
+            <div class="admin__fieldset">
+                <div class="admin__field">
+                    <div class="admin__field-label">
+                        <label><?= $block->escapeHtml(__('Status')) ?></label>
+                    </div>
+                    <div class="admin__field-control">
+                        <div class="admin__field-option">
+                            <input type="checkbox" id="easyorder_enabled" name="easyorder_enabled" value="1" checked>
+                            <label for="easyorder_enabled"><?= $block->escapeHtml(__('EasyOrder Module is Enabled')) ?></label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="admin__field">
+                    <div class="admin__field-label">
+                        <label><?= $block->escapeHtml(__('Configuration Note')) ?></label>
+                    </div>
+                    <div class="admin__field-control">
+                        <p><?= $block->escapeHtml(__('This page is under development. The full checkout fields management interface will be available soon.')) ?></p>
+                        <p><?= $block->escapeHtml(__('For now, you can configure the module settings in:')) ?></p>
+                        <ul>
+                            <li><?= $block->escapeHtml(__('Stores > Configuration > MagoArab > EasyOrder')) ?></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.easyorder-checkout-fields-management {
+    padding: 20px;
+}
+.admin__field {
+    margin-bottom: 20px;
+}
+.admin__field-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.admin__field-control p {
+    margin-bottom: 10px;
+}
+.admin__field-control ul {
+    margin-left: 20px;
+}
+</style>

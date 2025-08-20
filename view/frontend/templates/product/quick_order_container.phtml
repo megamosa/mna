@@ -1,0 +1,62 @@
+<?php
+/**
+ * MagoArab_EasYorder Quick Order Container Template (Modular)
+ *
+ * @category    MagoArab
+ * @package     MagoArab_EasYorder
+ */
+
+/* @var $block \MagoArab\EasYorder\Block\Product\QuickOrder */
+
+if (!$block->canShowQuickOrder()) {
+    return;
+}
+
+$product = $block->getCurrentProduct();
+if (!$product) {
+    return;
+}
+?>
+
+<div class="magoarab-easyorder-container" id="magoarab-easyorder-form-container">
+    <?= $block->getChildHtml('header') ?>
+
+    <form id="magoarab-easyorder-form" method="post" novalidate="novalidate">
+        <input type="hidden" name="form_key" value="<?= $block->escapeHtmlAttr($block->getFormKey()) ?>">
+        <input type="hidden" name="product_id" value="<?= $block->escapeHtmlAttr($product->getId()) ?>">
+
+        <div class="easyorder-form-content">
+            <?= $block->getChildHtml('product_info') ?>
+            <?= $block->getChildHtml('customer') ?>
+            <?= $block->getChildHtml('address') ?>
+            <?= $block->getChildHtml('shipping') ?>
+            <?= $block->getChildHtml('payment') ?>
+            <?= $block->getChildHtml('quantity') ?>
+            <?= $block->getChildHtml('summary') ?>
+            <?= $block->getChildHtml('actions') ?>
+            <?= $block->getChildHtml('messages') ?>
+        </div>
+    </form>
+</div>
+
+<script type="text/x-magento-init">
+{
+    "#magoarab-easyorder-form-container": {
+        "MagoArab_EasYorder/js/quick-order": {
+            "config": <?= $block->getJsonConfig() ?>
+        }
+    }
+}
+</script>
+
+<?php 
+$customCss = $block->getHelperData()->getCustomCss();
+if (!empty($customCss)): 
+?>
+<style type="text/css">
+/* Custom CSS from Admin Configuration */
+<?= $customCss ?>
+</style>
+<?php endif; ?>
+
+

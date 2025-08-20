@@ -1,0 +1,58 @@
+<?php
+/* @var $block \MagoArab\EasYorder\Block\Product\QuickOrder */
+?>
+<div class="easyorder-section">
+    <h4 class="section-title"><?= __('Customer Information') ?></h4>
+    <div class="field-group">
+        <div class="field required">
+            <label for="magoarab-customer-name" class="label">
+                <span><?= __('Full Name') ?></span>
+            </label>
+            <div class="control">
+                <input type="text"
+                       id="magoarab-customer-name"
+                       name="customer_name"
+                       class="input-text required-entry"
+                       placeholder="<?= $block->escapeHtmlAttr(__('Enter your full name')) ?>"
+                       value="<?= $block->escapeHtmlAttr($block->getPrefilledCustomerName()) ?>"
+                       required>
+            </div>
+        </div>
+
+        <div class="field required">
+            <label for="magoarab-customer-phone" class="label">
+                <span><?= __('Phone Number') ?></span>
+            </label>
+            <div class="control">
+                <input type="tel"
+                       id="magoarab-customer-phone"
+                       name="customer_phone"
+                       class="input-text required-entry"
+                       placeholder="<?= $block->escapeHtmlAttr(__('Enter your phone number')) ?>"
+                       value="<?= $block->escapeHtmlAttr($block->getPrefilledCustomerPhone()) ?>"
+                       required>
+            </div>
+        </div>
+
+        <div class="field<?= $block->isEmailRequired() ? ' required' : '' ?>" id="magoarab-email-field" style="<?= $block->getHelperData()->isAutoGenerateEmailEnabled() ? 'visibility:hidden;height:0;margin:0;padding:0;overflow:hidden;' : '' ?>">
+            <label for="magoarab-customer-email" class="label">
+                <span><?= $block->isEmailRequired() ? __('Email Address') : __('Email Address (Optional)') ?></span>
+            </label>
+            <div class="control">
+                <input type="email"
+                       id="magoarab-customer-email"
+                       name="customer_email"
+                       class="input-text<?= $block->isEmailRequired() ? ' required-entry' : '' ?>"
+                       placeholder="<?= $block->escapeHtmlAttr(__('Enter your email address')) ?>"
+                       value="<?= $block->escapeHtmlAttr($block->getPrefilledCustomerEmail()) ?>"
+                       <?= $block->isEmailRequired() ? 'required' : '' ?>>
+                <?php if ($block->getHelperData()->isAutoGenerateEmailEnabled()): ?>
+                    <small class="note"><?= __('Email will be auto-generated from phone if not provided') ?></small>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="magoarab-customer-email-hidden" name="customer_email_hidden" value="" />
+</div>
+
+

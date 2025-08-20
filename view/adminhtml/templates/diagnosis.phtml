@@ -1,0 +1,47 @@
+<?php
+/**
+ * EasYorder Diagnosis Template
+ */
+?>
+<div class="easyorder-diagnosis">
+    <div class="admin__page-section">
+        <div class="admin__page-section-title">
+            <span class="title"><?= $block->escapeHtml(__('EasyOrder System Diagnosis')) ?></span>
+        </div>
+        
+        <div class="admin__page-section-content">
+            <div class="admin__fieldset">
+                <div class="admin__field">
+                    <button type="button" id="run-diagnosis" class="action-primary">
+                        <?= $block->escapeHtml(__('Run Full Diagnosis')) ?>
+                    </button>
+                </div>
+                
+                <div id="diagnosis-results" style="margin-top: 20px; display: none;">
+                    <h3><?= $block->escapeHtml(__('Diagnosis Results')) ?></h3>
+                    <pre id="diagnosis-output"></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+require(['jquery'], function($) {
+    $('#run-diagnosis').click(function() {
+        $.ajax({
+            url: '<?= $block->getUrl('easyorder/diagnosis/index') ?>',
+            type: 'GET',
+            data: { ajax: 1 },
+            showLoader: true,
+            success: function(response) {
+                $('#diagnosis-output').text(JSON.stringify(response, null, 2));
+                $('#diagnosis-results').show();
+            },
+            error: function() {
+                alert('Diagnosis failed. Check logs for details.');
+            }
+        });
+    });
+});
+</script>

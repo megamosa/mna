@@ -1,0 +1,22 @@
+<div id="magoarab-success-message" class="message success" style="display: none;">
+    <div class="message-content">
+        <strong><?= __('Order created successfully!') ?></strong>
+        <p id="magoarab-success-text"></p>
+        <div class="order-info">
+            <p class="order-number">
+                <?= __('Order Number:') ?> <span id="magoarab-order-number"></span>
+            </p>
+            <div id="magoarab-product-details" class="product-details"></div>
+        </div>
+    </div>
+    <button id="manual-close-btn" type="button" class="close-success-btn" style="display:none">×</button>
+</div>
+
+<div id="magoarab-error-message" class="message error" style="display: none;">
+    <div class="message-content">
+        <strong><?= __('An error occurred') ?></strong>
+        <p id="magoarab-error-text"></p>
+    </div>
+</div>
+
+
